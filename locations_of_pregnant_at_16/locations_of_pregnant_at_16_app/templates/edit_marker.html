@@ -1,5 +1,5 @@
 {% load static %}
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" class="container">
     {% csrf_token %}
     {{ episode_form.as_p }}
     {{ heroine_form.as_p }}
@@ -12,7 +12,7 @@
         <button type="button" class="remove-child">Удалить</button>
     </div>
     {% endfor %}
-    <button type="submit">Сохранить изменения</button>
+    <button type="submit" class="form-button">Сохранить изменения</button>
 </form>
 
 <script src="{% static 'js/map.js' %}"></script>

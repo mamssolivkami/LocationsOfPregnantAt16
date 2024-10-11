@@ -8,14 +8,17 @@
     <title>Карта мест съемок</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}">
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 
 <body>
 
-    <div id="map"></div>
-
-    <a href="{% url 'home' %}" class="back-button">Вернуться на главную</a>
+    <div class="map-container">
+        <div id="map"></div>
+        <a href="{% url 'home' %}" class="back-button-map">Вернуться на главную</a>
+    </div>
 
     <script>
         let markersData = '{{ markers|escapejs }}';

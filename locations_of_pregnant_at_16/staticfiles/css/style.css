@@ -1,118 +1,139 @@
-.back-button {
-    position: absolute;
-    left: 50%;
-    bottom: 20px;
-    transform: translateX(-50%);
-    padding: 12px 25px;
-    background-color: #007BFF;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.2s;
-    font-family: 'Arial', sans-serif;
+/* style.css */
+
+/* Общие стили для всех страниц */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    margin: 20px;
+    text-align: left;
+}
+
+h1, h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Заголовки */
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Параграфы */
+.description {
     font-size: 16px;
-    z-index: 1000;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Кнопки */
+.btn, .back-button, .form-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 10px 5px;
+}
+
+.btn:hover, .back-button:hover, .form-button:hover {
+    background-color: #0056b3;
+}
+
+/* Специальные кнопки */
+#add-child, .remove-child {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#add-child:hover, .remove-child:hover {
+    background-color: #218838;
+}
+
+/* Форма */
+form {
+    margin-top: 20px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#children-container, .child-form {
+    margin-bottom: 20px;
+}
+
+#empty-form-template {
+    display: none;
+}
+
+/* Карта */
+#map {
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.back-button {
+    display: block;
+    margin-top: 20px;
+    background-color: #dc3545;
+    color: white;
 }
 
 .back-button:hover {
-    background-color: #0056b3;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    /* Убрано свойство transform для устранения прыжка */
+    background-color: #c82333;
 }
 
-/* Стили для карты */
-#map {
-    height: 600px;
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 1200px;
-}
-
-.leaflet-popup-content {
-    font-family: 'Arial', sans-serif;
-    font-size: 14px;
-}
-
-.leaflet-popup-content b {
-    font-size: 16px;
-}
-
-.leaflet-popup-content img {
-    margin-top: 10px;
-    border-radius: 10px;
-    width: 100px;
-    height: auto;
-}
-
-/* Общие стили для body */
-body {
-    background-color: #f4f4f9;
-}
-
-/* Центрирование контента */
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    padding: 0 20px;
-}
-
-/* Специфичные стили для кнопок только внутри body, чтобы не затронуть элементы карты */
-body a {
-    margin-top: 30px;
-    padding: 12px 30px;
-    background-color: #007BFF;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 18px;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-body a:hover {
-    background-color: #0056b3;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Отключаем стили для кнопок + и - на карте */
-.leaflet-control-zoom a {
-    background-color: #fff !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-}
-
-/* Сброс стилей для ссылки OSM */
-.leaflet-control-attribution a {
-    color: #007BFF !important;
-    text-decoration: none !important;
-}
-
-.leaflet-control-attribution a:hover {
-    text-decoration: underline !important;
-}
-
-/* Отключаем стили для кнопок + и - на карте */
-.leaflet-control-zoom a {
-    background-color: initial !important; /* Убираем кастомный фон */
-    color: initial !important; /* Возвращаем исходный цвет */
-    box-shadow: initial !important; /* Убираем тень */
-    border-radius: initial !important; /* Возвращаем стандартные углы */
-}
-
-/* Сброс стилей для ссылки OSM */
-.leaflet-control-attribution a {
-    color: initial !important; /* Возвращаем исходный цвет */
-    text-decoration: initial !important; /* Убираем кастомное подчеркивание */
-}
-
-.leaflet-control-attribution a:hover {
-    text-decoration: initial !important; /* Возвращаем стандартное поведение при наведении */
+/* Сообщения */
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: left;
 }
